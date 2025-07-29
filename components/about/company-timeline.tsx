@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Calendar, Lightbulb, Users, Rocket } from "lucide-react"
+import { Lightbulb, Users, Rocket, TrendingUp, Brain } from "lucide-react"
 
 const timelineEvents = [
   {
@@ -19,20 +19,30 @@ const timelineEvents = [
   },
   {
     year: "2021",
-    title: "Expansión del Equipo",
-    description: "Crecimos nuestro equipo con expertos en machine learning, desarrollo móvil y UX/UI.",
+    title: "Expansión del Equipo y Servicios",
+    description:
+      "Crecimos nuestro equipo con expertos en machine learning, desarrollo móvil y UX/UI, ampliando nuestra oferta de servicios.",
     icon: <Users className="w-6 h-6 text-[#00E676]" />,
   },
   {
     year: "2023",
-    title: "Alianza Estratégica",
-    description: "Establecimos alianzas con líderes tecnológicos para ofrecer soluciones más robustas.",
-    icon: <Calendar className="w-6 h-6 text-[#00E676]" />,
+    title: "Foco en Soluciones de IA Avanzadas",
+    description:
+      "Nos especializamos en la implementación de IA generativa y modelos de lenguaje grandes para soluciones empresariales.",
+    icon: <Brain className="w-6 h-6 text-[#00E676]" />, // Changed icon to Brain
+  },
+  {
+    year: "2024",
+    title: "Innovación en Web3 y Blockchain",
+    description:
+      "Exploramos y desarrollamos soluciones innovadoras integrando tecnologías Web3 y blockchain en nuestros proyectos.",
+    icon: <TrendingUp className="w-6 h-6 text-[#00E676]" />, // Changed icon to TrendingUp
   },
   {
     year: "Presente",
-    title: "Innovación Continua",
-    description: "Seguimos investigando y desarrollando nuevas tecnologías para mantenernos a la vanguardia.",
+    title: "Liderazgo en Transformación Digital",
+    description:
+      "Continuamos siendo pioneros en la transformación digital, ofreciendo soluciones de vanguardia que definen el futuro.",
     icon: <Lightbulb className="w-6 h-6 text-[#00E676]" />,
   },
 ]

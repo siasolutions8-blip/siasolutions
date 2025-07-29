@@ -49,7 +49,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 text-center z-20 relative">
+      <div className="container mx-auto px-4 text-left z-20 relative">
+        {" "}
+        {/* Changed text-center to text-left */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +71,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed" // Removed mx-auto
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -79,7 +81,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-start items-center" // Changed justify-center to justify-start
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -88,7 +90,6 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-[#00E676] to-[#1A237E] hover:from-[#00E676]/80 hover:to-[#1A237E]/80 text-white px-8 py-4 text-lg font-semibold group shadow-lg shadow-[#00E676]/30 hover:shadow-xl hover:shadow-[#00E676]/40 transition-all duration-300"
-                data-cursor="pointer"
               >
                 Explorar Servicios
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -99,14 +100,12 @@ export function HeroSection() {
               variant="outline"
               size="lg"
               className="border-2 border-[#00E676] text-[#00E676] hover:bg-[#00E676] hover:text-gray-900 px-8 py-4 text-lg font-semibold group transition-all duration-300 bg-transparent"
-              data-cursor="pointer"
             >
               <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
               Ver Demo
             </Button>
           </motion.div>
         </motion.div>
-
         {/* Scroll Indicator */}
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
@@ -114,18 +113,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <motion.div
-            className="w-6 h-10 border-2 border-[#00E676]/50 rounded-full flex justify-center cursor-pointer"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            data-cursor="pointer"
-          >
-            <motion.div
-              className="w-1 h-3 bg-[#00E676] rounded-full mt-2"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            />
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>

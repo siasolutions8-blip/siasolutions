@@ -1,12 +1,8 @@
 "use client"
-
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Smartphone, Brain, Star, Send, Globe, Target } from "lucide-react"
+import { Smartphone, Brain, Star, Globe, Target } from "lucide-react"
 import { HeroSection } from "@/components/home/hero-section"
 import { QuickAccessGrid } from "@/components/home/quick-access-grid"
 import { StatsSection } from "@/components/home/stats-section"
@@ -29,7 +25,7 @@ export default function HomePage() {
       <TechShowcase />
       <ServicesSection />
       <ProjectsSection />
-      <ChatbotSection />
+      {/* <ChatbotSection /> REMOVED */}
       <AboutSection />
       <TechnologiesSection />
       <TestimonialsSection />
@@ -202,100 +198,11 @@ const ProjectsSection = () => {
   )
 }
 
-// Chatbot Section
-const ChatbotSection = () => {
-  const [messages, setMessages] = useState([
-    { type: "bot", content: "¡Hola! Soy el asistente de S.I.A SOLUTIONS. ¿En qué puedo ayudarte?" },
-  ])
-  const [input, setInput] = useState("")
-
-  const handleSend = () => {
-    if (!input.trim()) return
-
-    const userMessage = { type: "user", content: input }
-    setMessages((prev) => [...prev, userMessage])
-
-    // Simular respuesta del bot
-    setTimeout(() => {
-      const botResponse = {
-        type: "bot",
-        content:
-          "Gracias por tu consulta. Nuestro equipo se pondrá en contacto contigo pronto para brindarte una solución personalizada.",
-      }
-      setMessages((prev) => [...prev, botResponse])
-    }, 1000)
-
-    setInput("")
-  }
-
-  return (
-    <section className="py-20 bg-gradient-to-r from-[#2A5CAA] to-[#00FFC2]">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Prueba Nuestra IA</h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">Experimenta el poder de la inteligencia artificial</p>
-        </motion.div>
-
-        <motion.div
-          className="max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <Card className="bg-white/10 backdrop-blur-md border-white/20">
-            <CardContent className="p-6">
-              <div className="h-64 overflow-y-auto mb-4 space-y-4">
-                {messages.map((message, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: message.type === "user" ? 20 : -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div
-                      className={`max-w-xs px-4 py-2 rounded-lg ${
-                        message.type === "user" ? "bg-white text-gray-900" : "bg-white/20 text-white"
-                      }`}
-                    >
-                      {message.content}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="flex gap-2">
-                <Input
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Escribe tu mensaje..."
-                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
-                  onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                />
-                <Button onClick={handleSend} size="icon" className="bg-white text-[#2A5CAA] hover:bg-white/90">
-                  <Send className="w-4 h-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
 // Testimonios Section
 const TestimonialsSection = () => {
   const testimonials = [
     {
       name: "María González",
-      company: "TechCorp",
       content:
         "S.I.A SOLUTIONS transformó completamente nuestros procesos. La automatización con IA nos ahorró 40% del tiempo.",
       rating: 5,
@@ -303,7 +210,6 @@ const TestimonialsSection = () => {
     },
     {
       name: "Carlos Rodríguez",
-      company: "InnovateLab",
       content:
         "El desarrollo de nuestra aplicación móvil superó todas las expectativas. Profesionalismo y calidad excepcional.",
       rating: 5,
@@ -311,7 +217,6 @@ const TestimonialsSection = () => {
     },
     {
       name: "Ana Martínez",
-      company: "Digital Plus",
       content:
         "La consultoría tecnológica nos ayudó a definir una estrategia clara. Resultados visibles desde el primer mes.",
       rating: 5,
@@ -360,7 +265,7 @@ const TestimonialsSection = () => {
                     />
                     <div>
                       <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.company}</p>
+                      {/* Removed company name: <p className="text-sm text-gray-500">{testimonial.company}</p> */}
                     </div>
                   </div>
                 </CardContent>
@@ -377,22 +282,22 @@ const TestimonialsSection = () => {
 const AboutSection = () => {
   const team = [
     {
-      name: "Alex Rivera",
-      role: "CEO & Fundador",
-      description: "Experto en IA y automatización con 10+ años de experiencia",
-      avatar: "/placeholder.svg?height=200&width=200",
+      name: "Marvin Negowai",
+      role: "CEO & Fundador, Lead Developer",
+      description: "Líder visionario en IA y desarrollo, impulsando la innovación y el crecimiento.",
+      avatar: "/placeholder.svg?height=200&width=200&text=Marvin+Negowai",
     },
     {
-      name: "Sofia Chen",
-      role: "CTO",
-      description: "Especialista en desarrollo web y arquitectura de software",
-      avatar: "/placeholder.svg?height=200&width=200",
+      name: "Marc Cañellas",
+      role: "CTO, Especialista",
+      description: "Experto en arquitectura de software y tecnologías de vanguardia.",
+      avatar: "/placeholder.svg?height=200&width=200&text=Marc+Cañellas",
     },
     {
-      name: "Diego Morales",
-      role: "Lead Developer",
-      description: "Full-stack developer con expertise en aplicaciones móviles",
-      avatar: "/placeholder.svg?height=200&width=200",
+      name: "Kanchan",
+      role: "Especialista Propulsor de la Empresa",
+      description: "Impulsa la eficiencia y la excelencia operativa en todos los proyectos.",
+      avatar: "/placeholder.svg?height=200&width=200&text=Kanchan",
     },
   ]
 
